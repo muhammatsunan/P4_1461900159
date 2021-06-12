@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::resource('buku0159', BukuController::class);
+Route::get('/exportdata', [BukuController::class, 'export']);

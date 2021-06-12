@@ -3,7 +3,8 @@
 @section('content')
 </br>  
     <a>Data Buku</a>
-    </br>
+    <a href="{{ url('/exportdata')}}" class="btn btn-info">Export</a>
+    </br></br>
     <table class="table-bordered table">
         <tr>
             <th>NO</th>
