@@ -12,18 +12,20 @@ class BukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+   public function __construct()
+   {
+       $this->Buku = new Buku();
+
+   }
+   
+     public function index()
+
     {
-        
-        $keyword = $request->keyword;
-        $buku = Buku::where('judul', 'LIKE', '%'.$keyword.'%')
-            ->orWhere('tahun_terbit', 'LIKE', '%'.$keyword.'%')
-            ->paginate();
-        $buku->withPath('buku');
-        $buku->appends($request->all());
-        return view('buku0159.index', compact(
-            'buku', 'keyword'
-        ));
+        $data =[
+
+            'rak_buku' => $this->Buku->allData(),
+        ];
+        return view('buku0159.index', $data);
 
     }
 
@@ -73,9 +75,9 @@ class BukuController extends Controller
      */
     public function edit($id)
     {
-        $model = Buku::find($id);
+        $data = Buku::find($id);
         return view('buku0159.edit', compact(
-            'model'
+            'data'
         ));
     }
 

@@ -4,17 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Buku extends Model
 {
-    use HasFactory;
-    public $timestamps = false;
-    protected $table = 'buku';
-    protected $primaryKey = 'id';
-    protected $fillable = [
-        'id',
-        'judul',
-        'tahun_terbit',
+    public function alldata()
+    {
+        return DB::table('rak_buku')
+        ->leftJoin('buku', 'buku.id', '=', 'rak_buku.id')
+        ->leftJoin('jenis_buku', 'jenis_buku.id', '=', 'rak_buku.id')
+            ->get();
 
-    ];
+    }
+
+    
 }

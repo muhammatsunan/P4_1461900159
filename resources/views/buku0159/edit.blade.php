@@ -2,7 +2,7 @@
 
 @section('content')
     <br/>
-    <form method="POST" action="{{ url('buku0159/'.$model->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ url('buku0159/'.$data->id) }}" enctype="multipart/form-data">
         @csrf 
         <input type="hidden" name="_method" value="PATCH">
 
