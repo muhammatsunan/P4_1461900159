@@ -9,6 +9,7 @@
             <th>NO</th>
             <th>JUDUL</th>
             <th>JENIS BUKU</th>
+            <th>TAHUN TERBIT</th>
         </tr>
         <?php $no=1; ?>
         @foreach($rak_buku as $data)
@@ -16,6 +17,7 @@
             <td>{{$no++}}</td>
             <td>{{$data->judul}}</td>
             <td>{{$data->jenis}}</td>
+            <td>{{$data->tahun_terbit}}</td>
     
         </tr>
         @endforeach
